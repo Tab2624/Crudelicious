@@ -1,0 +1,46 @@
+@{
+    ViewData["Title"] = "Edit Dish";
+}
+
+@model Dish
+<div>
+    <h1>Edit @Model.Name</h1>
+    <p> <a href="/">Home</a> | <a href="/dishes/new">Add a dish</a></p>
+</div>
+
+<form asp-action="UpdatePost" asp-asp-controller="Dish" method="post" asp-route-dishId="@Model.DishID">
+    <div class="d-flex">
+        <div>
+            <label asp-for="Name"></label>
+            <input asp-for="Name">
+            <span class="text-danger" asp-validation-for="Name"></span><br>
+
+            <label asp-for="Chef" class="mt-2"></label>
+            <input asp-for="Chef">
+            <span class="text-danger" asp-validation-for="Chef"></span><br>
+
+            <label asp-for="Calories"></label>
+            <input asp-for="Calories">
+            <span class="text-danger" asp-validation-for="Calories"></span><br>
+        </div>
+        <div>
+            <label asp-for="Tastiness"></label>
+            <select asp-for="Tastiness">
+                <option value="1">1</option>
+                <option value="2">2</option>
+                <option value="3">3</option>
+                <option value="4">4</option>
+                <option value="5">5</option>
+            </select>
+            <span class="text-danger" asp-validation-for="Tastiness"></span>
+        </div>
+        <div>
+            <label asp-for="Description"></label>
+            <textarea asp-for="Description" rows="4" cols="50"></textarea>
+            <span class="text-danger" asp-validation-for="Description"></span>
+        </div>
+    </div>
+    <div>
+        <button class="btn btn-primary" type="submit">Submit</button>
+    </div>
+</form>
